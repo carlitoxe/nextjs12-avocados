@@ -1,8 +1,39 @@
 import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
+import { GetStaticProps } from 'next'
 
-export default function ProductItem() {
-    const [product, setProduct] = useState('');
+export const getStaticPaths = async () => {
+    const response = await fetch('https://avocados-nextjs-two.vercel.app/api/avo/')
+    const { data: productList }: TAPIAvoResponse = await response.json();
+
+    const paths = productList.map(({id}) => ({
+        params: { 
+            id: id 
+        }
+    })) 
+
+    return {
+        paths,
+        // incremental static generation
+        // 404 for everything else
+        fallback: false
+    }
+}
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+    const id = params?.id;
+    const response = await fetch(`https://avocados-nextjs-two.vercel.app/api/avo/${id}`) 
+    const { data: product }: { data: TProduct } = await response.json();
+
+  return {
+    props: {
+      product,
+    }
+  }
+}
+
+export default function ProductPage({ product }: { product: TProduct }) {
+    const [, setProduct] = useState('');
     const [loading, setLoading] = useState(false);
     
     const {
@@ -44,7 +75,7 @@ export default function ProductItem() {
         <table className="border border-neutral-400 mt-8 mx-auto border-separate border-spacing-0 rounded-lg w-[300px]">
             <thead>
                 <tr>
-                    <th colspan="2" className="p-2 bg-lime-700 rounded-t-lg border-b border-neutral-300">
+                    <th colSpan={2} className="p-2 bg-lime-700 rounded-t-lg border-b border-neutral-300">
                         Attributes
                     </th>
                 </tr>
