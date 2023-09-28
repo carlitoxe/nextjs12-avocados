@@ -48,7 +48,10 @@ export default function Navbar() {
 
                                   >
                                     <div className="flex">
-                                      {link.path === '/cart' ? <><img src="/images/cart.png" className='w-8 max-w-8' /><p className="pl-1">{link.name}</p></>  : link.name}
+                                      {link.path === '/cart' ? 
+                                                              <><img src="/images/cart.png" className='w-8 max-w-8' /><p className="pl-1">{link.name}</p></> : 
+                                                              <><img src="/images/home.png" className='w-8 max-w-8' /><p className="pl-1">{link.name}</p></>
+                                      }
                                       
                                       {link.path === '/cart' ? showCartCount() : null}
                                     </div>
