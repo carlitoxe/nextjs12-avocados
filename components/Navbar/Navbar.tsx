@@ -1,13 +1,36 @@
 import Link from "next/link"
 import { useRouter } from "next/router";
+import { useCart } from "@store/Cart";
 
 const navLinks = [
     {name: 'Home', path: '/'},
-    {name: 'About', path: '/about'}
+    {name: 'Cart', path: '/cart'}
 ]
 
 export default function Navbar() {
-    const router = useRouter()
+    const { count: cartCount } = useCart()
+    console.log(cartCount);
+    
+      const showCartCount = () => {
+    if (!cartCount) {
+      return <span className="text-2xl pl-1">(0)</span>
+    }
+    if (cartCount > 9) {
+      return (
+        <span className="text-2xl pl-1 font-medium">
+          (9<sup>+</sup>)
+        </span>
+      )
+    }
+    return (
+      <span className="text-2xl pl-1">
+         ({cartCount})
+      </span>
+    )
+  }
+
+    const { pathname } = useRouter()
+    
     return (
         <header>
             <nav className="">
@@ -15,15 +38,21 @@ export default function Navbar() {
                     
                 {   
                     navLinks.map((link) => {
-                        const isActive = router.pathname === link.path;
+                        const isActive = pathname === link.path;
                         return (
-                            <li key={link.name} >
+                            <li key={link.name} className="">
                                  <Link 
                                     key={link.name} 
                                     href={link.path} 
                                     className={isActive ? 'text-lime-400 font-medium': 'text-white'}
+
                                   >
-                                    {link.name}
+                                    <div className="flex">
+                                      {link.path === '/cart' ? <><img src="/images/cart.png" className='w-8 max-w-8' /><p>{link.name}</p></>  : link.name}
+                                      
+                                      {link.path === '/cart' ? showCartCount() : null}
+                                    </div>
+
                                 </Link>
                             </li>
 

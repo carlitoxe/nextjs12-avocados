@@ -1,0 +1,37 @@
+.form {
+    margin-top: 1em;
+  }
+  
+  .quantityInput {
+    height: 35px;
+    box-sizing: border-box;
+    outline: none;
+    border: 1px solid black;
+    border-radius: 4px;
+    margin-right: 0.8em;
+  }
+  
+  .formBtn {
+    border: none;
+    outline: none;
+    background-color: greenyellow;
+    color: brown;
+    font-weight: 700;
+    height: 35px;
+    border-radius: 4px;
+    transition: 450ms;
+    will-change: transform;
+    cursor: pointer;
+    padding: 0 0.75rem;
+    text-align: center;
+  }
+  
+  .formBtn:hover {
+    transform: scale(1.075);
+  }
+  
+  @media screen and (max-width: 768px) {
+    .formBtn {
+      margin-top: 15px;
+    }
+  }
