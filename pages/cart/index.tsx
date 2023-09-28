@@ -16,7 +16,7 @@ export default function Cart() {
             <h1 className={styles.title}>🥑 Shopping Cart 🥑</h1>
             <article>
               <table className={styles.contentTable}>
-                <thead>
+                <thead className=''>
                   <tr className='text-lg'>
                     <th>Product</th>
                     <th>Name</th>
@@ -60,7 +60,7 @@ export default function Cart() {
                     </tr>
                   ))}
                   <tr
-                    className='border-t border-b'
+                    className='border-t border-b border-slate-400'
                   >
                     <td className='text-xl font-medium'>Subtotal:</td>
                     <td className='font-bold text-lg'>${subTotal.toFixed(2)} ({count} items)</td>
