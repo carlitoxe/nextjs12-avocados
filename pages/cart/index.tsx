@@ -74,7 +74,7 @@ export default function Cart() {
 
             </article>
           </>
-        ) : (<div className='bg-orange-200 text-orange-800 rounded-xl p-4 font-medium'>
+        ) : (<div className='bg-orange-200 text-orange-800 rounded-xl p-4 font-medium mt-8'>
               <h1 className={styles.title}>🥑 Your cart is empty 🥑</h1>
               <p className='text-lg mt-1'>You will need to add some items before you can checkout</p>
             </div>
