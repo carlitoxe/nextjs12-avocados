@@ -17,7 +17,7 @@ export default function Cart() {
             <article>
               <table className={styles.contentTable}>
                 <thead>
-                  <tr className='text-xl md:text-xl'>
+                  <tr className='text-lg'>
                     <th>Product</th>
                     <th>Name</th>
                     <th>Quantity</th>
@@ -66,12 +66,20 @@ export default function Cart() {
                     <td></td>
                     <td>{count}</td>
                     <td></td>
-                    <td>{subTotal.toFixed(2)}</td>
+                    <td className='font-bold text-lg'>{subTotal.toFixed(2)}</td>
                     <td></td>
                   </tr>
                 </tbody>
               </table>
+              <div className='border-t'>
+              <button 
+                type="button" 
+                className="text-white mt-6 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg px-5 py-2 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+              >
+                Checkout
+              </button>
 
+              </div>
             </article>
           </>
         ) : (<div className='bg-orange-200 text-orange-800 rounded-xl p-4 font-medium mt-8'>

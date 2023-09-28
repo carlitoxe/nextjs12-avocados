@@ -9,21 +9,22 @@
     border: 1px solid black;
     border-radius: 4px;
     margin-right: 0.8em;
+    text-align: center;
   }
   
   .formBtn {
     border: none;
     outline: none;
-    background-color: greenyellow;
-    color: brown;
+    background-color: goldenrod;
+    color: black;
+    font-size: 1rem;
     font-weight: 700;
     height: 35px;
-    border-radius: 4px;
+    border-radius: 8px;
     transition: 450ms;
     will-change: transform;
     cursor: pointer;
-    padding: 0 0.75rem;
-    text-align: center;
+    padding: 0 0.8rem;
   }
   
   .formBtn:hover {
