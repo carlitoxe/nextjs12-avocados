@@ -1,3 +1,4 @@
+import Image from "next/image";
 import AddToCart from "@components/AddToCart/AddToCart";
 
 type ProductSummaryProps = {
@@ -10,11 +11,12 @@ const ProductSummary = ({ product }: ProductSummaryProps) => {
         <>
                  <section className="flex justify-center pt-8 px-4 ">
             <div className="container-image flex justify-center w-fit">
-                <img className="w-[300px] rounded-lg" src={product.image} alt={product.name} />  
+                <Image src={product.image} alt={product.name} className="rounded-lg" width={300} height={300}/>
+                {/* <img className="w-[300px] rounded-lg" src={product.image} alt={product.name} />   */}
             </div>
             <div className="flex flex-col justify-center ml-2 md:ml-4">
                 <p className="text-2xl font-medium text-left">{product.name}</p>
-                <p className="text-left mt-2 text-lime-500 text-lg font-medium">{product.price}</p>
+                <p className="text-left mt-2 text-lime-500 text-lg font-medium">${product.price}</p>
                 <label className="text-left bg-neutral-300 w-fit rounded-lg px-2 text-amber-700 text-sm mt-2">SKU: {product.sku}</label>
                 <AddToCart product={product} />
             </div>

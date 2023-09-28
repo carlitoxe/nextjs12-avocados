@@ -1,6 +1,6 @@
-import React, { useContext } from 'react';
-import styles from './Cart.module.css';
 import Link from 'next/link';
+import Image from 'next/image';
+import styles from './Cart.module.css';
 import { useCart, useCartMutations } from '@store/Cart'
 
 export default function Cart() {
@@ -29,7 +29,7 @@ export default function Cart() {
                 <tbody>
                   {items.map((item) => (
                     <tr key={item.name}>
-                      <td><Link href={`/product/${item.id}`}><img src={`${item.image}`} alt="" className='max-w-[80px] rounded-xl'/>  </Link></td>
+                      <td><Link href={`/product/${item.id}`}><Image src={item.image} alt={item.name} width={80} height={80} className='rounded-xl'/></Link></td>
                       <td><Link href={`/product/${item.id}`} className='font-bold text-lg text-lime-400'>{item.name}</Link></td>
                       <td>{item.quantity}</td>
                       <td>${item.price}</td>
@@ -60,7 +60,7 @@ export default function Cart() {
                     </tr>
                   ))}
                   <tr
-                    className='border-t border-b border-slate-400'
+                    className='border-y border-slate-400'
                   >
                     <td className='text-xl font-medium'>Subtotal:</td>
                     <td className='font-bold text-lg'>${subTotal.toFixed(2)} ({count} items)</td>

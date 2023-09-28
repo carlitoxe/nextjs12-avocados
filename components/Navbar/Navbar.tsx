@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image";
 import { useRouter } from "next/router";
 import { useCart } from "@store/Cart";
 
@@ -49,8 +50,8 @@ export default function Navbar() {
                                   >
                                     <div className="flex">
                                       {link.path === '/cart' ? 
-                                                              <><img src="/images/cart.png" className='w-8 max-w-8' /><p className="pl-1">{link.name}</p></> : 
-                                                              <><img src="/images/home.png" className='w-8 max-w-8' /><p className="pl-1">{link.name}</p></>
+                                                              <><Image src="/images/cart.png" alt={`${link.name} icon`} width={32} height={32} /><p className="pl-1">{link.name}</p></> : 
+                                                              <><Image src="/images/home.png" alt={`${link.name} icon`} width={32} height={32} /><p className="pl-1">{link.name}</p></>
                                       }
                                       
                                       {link.path === '/cart' ? showCartCount() : null}

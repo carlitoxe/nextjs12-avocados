@@ -16,10 +16,7 @@ export const getStaticProps = async () => {
 
 export default function Home({ productList }: { productList: TProduct[] }) {
   const [loading, setLoading] = useState(false);
-  
-  useEffect(() => {
- 
-  }, [])
+
 
   return (
     <div>
@@ -30,7 +27,10 @@ export default function Home({ productList }: { productList: TProduct[] }) {
       </Head>
     
       <main>
-        <h1 className='text-3xl text-lime-400 pt-5'>Avocados</h1>
+        <h1 className='text-4xl text-lime-400 pt-5'>Avocados</h1>
+        <section className='mt-4 text-lg pb-2'>
+          <Link href={'/yes-or-no'} className='text-blue-400 hover:text-blue-600'>Should I eat an avocado today?</Link>
+        </section>
         <ProductList 
           productList={productList} 
           loading={loading}

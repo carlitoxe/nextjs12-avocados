@@ -1,4 +1,6 @@
 .form {
+    display: flex;
+    align-items: center;
     margin-top: 1em;
   }
   
@@ -15,8 +17,8 @@
   .formBtn {
     border: none;
     outline: none;
-    background-color: goldenrod;
-    color: black;
+    background-color: rgb(77 124 15);
+    color: white;
     font-size: 1rem;
     font-weight: 700;
     height: 35px;

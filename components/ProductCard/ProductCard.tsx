@@ -12,7 +12,7 @@ export default function ProductCard({product}) {
           </div>
           {/* <img src={product.image} className='w-[300px] rounded-t-lg' alt={product.name}/> */}
           <p className='mt-3 font-medium text-lg leading-5'>{product.name}</p>
-          <div className='text-lime-400'>{product.price}</div>
+          <div className='text-lime-400'>${product.price}</div>
         </Link>
       </li>
     )
