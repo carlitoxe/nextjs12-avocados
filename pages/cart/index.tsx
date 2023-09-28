@@ -32,8 +32,8 @@ export default function Cart() {
                       <td><Link href={`/product/${item.id}`}><img src={`${item.image}`} alt="" className='max-w-[80px] rounded-xl'/>  </Link></td>
                       <td><Link href={`/product/${item.id}`} className='font-bold text-lg text-lime-400'>{item.name}</Link></td>
                       <td>{item.quantity}</td>
-                      <td>{item.price} $</td>
-                      <td>{(item.quantity * item.price).toFixed(2)} $</td>
+                      <td>${item.price}</td>
+                      <td>${(item.quantity * item.price).toFixed(2)}</td>
                       <td>
                         {/* <button
                           className={styles.action}
@@ -60,21 +60,21 @@ export default function Cart() {
                     </tr>
                   ))}
                   <tr
-                    
+                    className='border-t border-b'
                   >
-                    <td className='text-xl font-medium'>Total</td>
+                    <td className='text-xl font-medium'>Subtotal:</td>
+                    <td className='font-bold text-lg'>${subTotal.toFixed(2)} ({count} items)</td>
                     <td></td>
-                    <td>{count}</td>
                     <td></td>
-                    <td className='font-bold text-lg'>{subTotal.toFixed(2)}</td>
+                    <td></td>
                     <td></td>
                   </tr>
                 </tbody>
               </table>
-              <div className='border-t'>
+              <div className=''>
               <button 
                 type="button" 
-                className="text-white mt-6 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg px-5 py-2 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+                className="text-white mt-2 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg px-5 py-2 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
               >
                 Checkout
               </button>
